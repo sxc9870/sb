@@ -6,6 +6,7 @@ import javax.sql.DataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -28,7 +29,8 @@ public class MybatisConfig implements TransactionManagementConfigurer {
     public DataSource dataSource(Environment environment) {
         return DruidDataSourceBuilder.create().build(environment, "spring.datasource.druid.");
     }
-
+    @Value("${mybatis.mapper-path}")
+    private String locationPattern ;
     @Resource(name = "dataSource")
     DataSource dataSource;
 
@@ -57,7 +59,8 @@ public class MybatisConfig implements TransactionManagementConfigurer {
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         try {
             // 设置xml扫描路径
-            bean.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
+          
+            bean.setMapperLocations(resolver.getResources(locationPattern));
             return bean.getObject();
         } catch (Exception e) {
             throw new RuntimeException("sqlSessionFactory init fail", e);

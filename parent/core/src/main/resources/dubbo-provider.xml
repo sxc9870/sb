@@ -10,16 +10,16 @@
   
     <!-- 提供方应用信息，用于计算依赖关系 -->  
     <dubbo:application name="${dubbo.application.name}" />  
-  
     <!-- 注册中心暴露服务地址 -->  
     <!-- <dubbo:registry address="multicast://224.5.6.7:1234" /> -->  
-      
+    
    <!-- <dubbo:registry protocol="zookeeper" address="10.170.219.98:2181,10.173.55.173:2181" /> -->  
    <dubbo:registry protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}" />  
   
     <!-- 暴露服务 -->  
     <dubbo:protocol name="${dubbo.protocol.name}" port="${dubbo.protocol.port}" />  
-
+    <!-- 不重试 -->
+   <dubbo:provider timeout="${dubbo.timeout}" retries="0"/>  
     <dubbo:annotation package="${dubbo.annotation.package}" />
      <context:component-scan base-package="${dubbo.scan.package}"/>  
      

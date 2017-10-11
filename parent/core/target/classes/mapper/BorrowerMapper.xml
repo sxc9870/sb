@@ -3,16 +3,13 @@
 <mapper namespace="com.sxc.dao.mapper.BorrowerMapper">
 
 
-	<select id="select"  resultType="java.lang.Long">
+	<insert id="select">
 
 
-		SELECT
-		1
-		FROM
-		dual
+		 insert test values('1')
 
 
-	</select>
+	</insert>
 
 
 

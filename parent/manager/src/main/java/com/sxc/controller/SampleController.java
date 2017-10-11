@@ -21,8 +21,14 @@ public class SampleController  extends BaseController{
     @RequestMapping("/hello")  
     public ModelAndView  hello(Map<String,Object> map){  
         PageBean p=new PageBean();
+        p.addObject("name",    i.addTest());
+        return  getView("hello", p);  
+    }  
+    
+    @RequestMapping("/hello2")  
+    public ModelAndView  hello2(Map<String,Object> map){  
+        PageBean p=new PageBean();
         p.addObject("name",    i.test());
         return  getView("hello", p);  
     }  
- 
 }

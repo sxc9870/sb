@@ -8,7 +8,7 @@
 
 	<!-- 提供方应用信息，用于计算依赖关系 -->
 	<dubbo:application name="${dubbo.application.name}" />
-
+   <dubbo:provider timeout="${dubbo.timeout}" retries="0"/>  
 	<!-- 注册中心暴露服务地址 -->
 	<dubbo:registry protocol="${dubbo.registry.protocol}"
 		address="${dubbo.registry.address}" />
