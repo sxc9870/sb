@@ -14,9 +14,12 @@ import com.sxc.service.WindowsService;
 public class App {
     public static void main(String[] args) {
         ConfigurableApplicationContext c=    SpringApplication.run(  App.class, args);
-        WindowsService cc=  c.getBean(WindowsService.class);
+//        WindowsService cc=  c.getBean(WindowsService.class);
+//        
+//        cc.showCMD();
         
-        cc.showCMD();
+        
+        
     }
 
     private static String change(String a) {
