@@ -1,1 +1,2 @@
 hello.ms=sxc
+spring.data.mongodb.uri=mongodb://localhost/sxc

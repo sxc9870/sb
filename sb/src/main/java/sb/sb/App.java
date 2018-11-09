@@ -3,7 +3,9 @@ package sb.sb;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
+import com.sxc.mongo.MongoFactoryBean;
 import com.sxc.service.WindowsService;
 
 /**
@@ -11,13 +13,15 @@ import com.sxc.service.WindowsService;
  *
  */
 @SpringBootApplication
+@ComponentScan("com.sxc")
 public class App {
     public static void main(String[] args) {
         ConfigurableApplicationContext c=    SpringApplication.run(  App.class, args);
 //        WindowsService cc=  c.getBean(WindowsService.class);
 //        
 //        cc.showCMD();
-        
+        MongoFactoryBean bean=c.getBean(MongoFactoryBean.class);
+        bean.example();
         
         
     }
