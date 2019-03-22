@@ -1,29 +1,40 @@
 package sb.sb;
 
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.BeansException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.sxc.mongo.MongoFactoryBean;
-import com.sxc.service.WindowsService;
+import com.sxc.tx.TxTest;
 
 /**
  * Hello world!
  *
  */
 @SpringBootApplication
-@ComponentScan("com.sxc")
+@ComponentScan({"com.sxc","sb.sb"})
+@EnableTransactionManagement
+@MapperScan("com.sxc.mapper")
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws BeansException, IOException, NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         ConfigurableApplicationContext c=    SpringApplication.run(  App.class, args);
 //        WindowsService cc=  c.getBean(WindowsService.class);
-//        
+//        class org.mybatis.spring.mapper.MapperFactoryBean
+        
+      
 //        cc.showCMD();
-        MongoFactoryBean bean=c.getBean(MongoFactoryBean.class);
-        bean.example();
+      //  MongoFactoryBean bean=c.getBean(MongoFactoryBean.class);
+      //  bean.example();
+      
         
         
+        c.getBean(TxTest.class).queryProductOrder();
     }
 
     private static String change(String a) {

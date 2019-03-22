@@ -1,0 +1,15 @@
+ ##app初始化器
+org.springframework.context.ApplicationContextInitializer=com.sxc.start.MyApplicationContextInitializer
+##监听器 广播生命周期的所有事件,包含在componet被扫描到以前的环境准备以及上下文准备事件
+org.springframework.context.ApplicationListener=com.sxc.start.MyApplicationListener
+##运行时监听器
+org.springframework.boot.SpringApplicationRunListener=com.sxc.start.MySpringApplicationRunListener
+ ##环境变量加工器
+org.springframework.boot.env.EnvironmentPostProcessor=com.sxc.start.MyEnvironmentPostProcessor
+ ##properteis读取器
+org.springframework.boot.env.PropertySourceLoader=com.sxc.start.MyPropertySourceLoader
+
+org.springframework.boot.diagnostics.FailureAnalyzer=com.sxc.start.MyFailureAnalyzer
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.sxc.start.MyEnableAutoConfiguration
+spring.config.name=abc
+spring.config.location=def

@@ -1,1 +1,15 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=sb.sb.HelloAutoconfig
+ ##app初始化器
+org.springframework.context.ApplicationContextInitializer=com.duoying.abs.sb.MyApplicationContextInitializer
+##监听器
+org.springframework.context.ApplicationListener=com.duoying.abs.sb.MyApplicationListener
+##运行时监听器
+org.springframework.boot.SpringApplicationRunListener=com.duoying.abs.sb.MySpringApplicationRunListener
+ ##环境变量加工器
+org.springframework.boot.env.EnvironmentPostProcessor=com.duoying.abs.sb.MyEnvironmentPostProcessor
+ ##properteis读取器
+org.springframework.boot.env.PropertySourceLoader=com.duoying.abs.sb.MyPropertySourceLoader
+
+org.springframework.boot.diagnostics.FailureAnalyzer=com.duoying.abs.sb.MyFailureAnalyzer
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.duoying.abs.sb.MyEnableAutoConfiguration
+spring.config.name=abc
+spring.config.location=def
